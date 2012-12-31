@@ -17,21 +17,13 @@ public class MainActivity extends Activity {
 	
 	private DropBoxClient dropBoxClient = null;
 	
-	private OnClickListener enterDropBoxClickListener = new OnClickListener() {
-	private int authenticationMessageDuration =  Toast.LENGTH_SHORT;
+	private int authenticationMessageDuration =  Toast.LENGTH_LONG;	
+
 	
+	private OnClickListener enterDropBoxClickListener = new OnClickListener() {
 		@Override
 		public void onClick(View view) {
-			dropBoxClient.startAuthentication();
-			Toast toast = null;
-			if(dropBoxClient.checkIfAuthenticationSuccessful()) {
-				Log.v(TAG,"Authentication Succesful.Showing toast now");
-				toast = Toast.makeText(getApplicationContext(), R.string.authentication_successful, authenticationMessageDuration);
-				dropBoxClient.finishAuthentication();
-			}
-			else {
-				toast = Toast.makeText(getApplicationContext(), R.string.authenticaton_failed, authenticationMessageDuration);
-			}
+			dropBoxClient.startAuthentication();			
 		}
 	};
 
@@ -41,8 +33,30 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		enterDropBoxButton = (Button)findViewById(R.id.dropBoxButton);
-		enterDropBoxButton.setOnClickListener(enterDropBoxClickListener);
-		
+		enterDropBoxButton.setOnClickListener(enterDropBoxClickListener);		
 		dropBoxClient = new DropBoxClient(this);
 	}
+	
+	
+	protected void onResume() {
+		super.onResume();
+		
+		Toast toast = null;
+
+		if(dropBoxClient.checkIfAuthenticationSuccessful()) {
+			Log.v(TAG,"Authentication Succesful.Showing toast now");
+			toast = Toast.makeText(getApplicationContext(), R.string.authentication_successful, authenticationMessageDuration);
+			dropBoxClient.finishAuthentication();
+			toast.show();
+
+		}
+		else {
+			Log.v(TAG,"Authentication Failure.");
+			toast = Toast.makeText(getApplicationContext(), R.string.authenticaton_failed, authenticationMessageDuration);
+		}
+
+	}
+	
+	
+	
 }
