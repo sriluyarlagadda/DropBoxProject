@@ -9,27 +9,175 @@ package com.example.dropbox;
 
 public final class R {
     public static final class attr {
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int adapterViewBackground=0x7f010000;
+        /** <p>Must be one or more (separated by '|') of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>pullDownFromTop</code></td><td>0x1</td><td></td></tr>
+<tr><td><code>pullUpFromBottom</code></td><td>0x2</td><td></td></tr>
+<tr><td><code>both</code></td><td>0x3</td><td></td></tr>
+</table>
+         */
+        public static final int mode=0x7f010003;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int ptrHeaderBackground=0x7f010001;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int ptrHeaderTextColor=0x7f010002;
+    }
+    public static final class color {
+        public static final int article_title=0x7f07000a;
+        public static final int articlecolor=0x7f070009;
+        public static final int black=0x7f070004;
+        public static final int blue=0x7f070006;
+        public static final int blueback=0x7f070008;
+        public static final int cachecolor=0x7f07000b;
+        public static final int date_color=0x7f070003;
+        public static final int gold=0x7f070007;
+        public static final int gray=0x7f070005;
+        public static final int orange=0x7f070000;
+        public static final int transparent=0x7f070002;
+        public static final int white=0x7f070001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int dropboxpackage=0x7f020000;
+        public static final int excel48=0x7f020001;
+        public static final int folder48=0x7f020002;
+        public static final int folder_app48=0x7f020003;
+        public static final int folder_gray48=0x7f020004;
+        public static final int folder_photos48=0x7f020005;
+        public static final int folder_public48=0x7f020006;
+        public static final int folder_star48=0x7f020007;
+        public static final int folder_user48=0x7f020008;
+        public static final int form_box=0x7f020009;
+        public static final int home_btn_edit_profile_focused=0x7f02000a;
+        public static final int home_btn_edit_profile_normal=0x7f02000b;
+        public static final int home_btn_edit_profile_pressed=0x7f02000c;
+        public static final int home_profile=0x7f02000d;
+        public static final int ic_launcher=0x7f02000e;
+        public static final int ic_no_image_agent=0x7f02000f;
+        public static final int music48=0x7f020010;
+        public static final int navigation_next_item=0x7f020011;
+        public static final int package48=0x7f020012;
+        public static final int page_white48=0x7f020013;
+        public static final int page_white_acrobat48=0x7f020014;
+        public static final int page_white_actionscript48=0x7f020015;
+        public static final int page_white_c48=0x7f020016;
+        public static final int page_white_code48=0x7f020017;
+        public static final int page_white_cplusplus48=0x7f020018;
+        public static final int page_white_csharp=0x7f020019;
+        public static final int page_white_cup48=0x7f02001a;
+        public static final int page_white_dvd=0x7f02001b;
+        public static final int page_white_flash48=0x7f02001c;
+        public static final int page_white_gear48=0x7f02001d;
+        public static final int page_white_h48=0x7f02001e;
+        public static final int page_white_paint48=0x7f02001f;
+        public static final int page_white_php48=0x7f020020;
+        public static final int page_white_picture48=0x7f020021;
+        public static final int page_white_ruby48=0x7f020022;
+        public static final int page_white_text48=0x7f020023;
+        public static final int page_white_tux48=0x7f020024;
+        public static final int page_white_vector48=0x7f020025;
+        public static final int page_white_visualstudio48=0x7f020026;
+        public static final int page_white_zip48=0x7f020027;
+        public static final int powerpoint48=0x7f020028;
+        public static final int pulltorefresh_down_arrow=0x7f020029;
+        public static final int pulltorefresh_up_arrow=0x7f02002a;
+        public static final int social_person=0x7f02002b;
+        public static final int word48=0x7f02002c;
     }
     public static final class id {
-        public static final int dropBoxButton=0x7f070000;
-        public static final int menu_settings=0x7f070001;
+        public static final int Entries=0x7f040012;
+        public static final int account_details=0x7f04001f;
+        public static final int both=0x7f040002;
+        public static final int container=0x7f04000a;
+        public static final int dashboard=0x7f04000f;
+        public static final int dashboard_container=0x7f040007;
+        public static final int dropBoxButton=0x7f040009;
+        public static final int dropBoxEntry=0x7f04000c;
+        public static final int dropboxFolder=0x7f040011;
+        public static final int entryIcon=0x7f04000b;
+        public static final int entryMetaData=0x7f04000d;
+        public static final int fileList=0x7f040008;
+        public static final int goIntoIcon=0x7f04000e;
+        public static final int gridview=0x7f040003;
+        public static final int labelName=0x7f040014;
+        public static final int labelNormalQuota=0x7f040018;
+        public static final int labelUserQuota=0x7f040016;
+        public static final int list_files=0x7f04001e;
+        public static final int menu_settings=0x7f04001d;
+        public static final int normalquotaValue=0x7f040019;
+        public static final int profile=0x7f040013;
+        public static final int pullDownFromTop=0x7f040000;
+        public static final int pullUpFromBottom=0x7f040001;
+        public static final int pull_to_refresh_image=0x7f04001c;
+        public static final int pull_to_refresh_progress=0x7f04001b;
+        public static final int pull_to_refresh_text=0x7f04001a;
+        public static final int quotaValue=0x7f040017;
+        public static final int refreshable=0x7f040006;
+        public static final int userName=0x7f040015;
+        public static final int userProfile=0x7f040010;
+        public static final int view=0x7f040005;
+        public static final int webview=0x7f040004;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int activity_dashboard=0x7f030000;
+        public static final int activity_dropboxdata=0x7f030001;
+        public static final int activity_files_list=0x7f030002;
+        public static final int activity_main=0x7f030003;
+        public static final int activity_user_profile=0x7f030004;
+        public static final int entry=0x7f030005;
+        public static final int fragment_dashboard=0x7f030006;
+        public static final int fragment_dropboxfilelist=0x7f030007;
+        public static final int fragment_userprofile=0x7f030008;
+        public static final int pull_to_refresh_header=0x7f030009;
     }
     public static final class menu {
-        public static final int activity_main=0x7f060000;
+        public static final int activity_dasboard=0x7f080000;
+        public static final int activity_dashboard1=0x7f080001;
+        public static final int activity_files_list=0x7f080002;
+        public static final int activity_main=0x7f080003;
+        public static final int activity_user_profile=0x7f080004;
     }
     public static final class string {
-        public static final int app_name=0x7f040000;
-        public static final int authentication_successful=0x7f040004;
-        public static final int authenticaton_failed=0x7f040005;
-        public static final int enter_dropbox=0x7f040003;
-        public static final int hello_world=0x7f040001;
-        public static final int menu_settings=0x7f040002;
+        public static final int app_name=0x7f050004;
+        public static final int authentication_successful=0x7f050008;
+        public static final int authenticaton_failed=0x7f050009;
+        public static final int dropBoxFolder=0x7f050013;
+        public static final int enter_dropbox=0x7f050007;
+        public static final int hello_world=0x7f050005;
+        public static final int menu_settings=0x7f050006;
+        public static final int name=0x7f050010;
+        public static final int normalQuota=0x7f050012;
+        public static final int pull_to_refresh_pull_label=0x7f050000;
+        public static final int pull_to_refresh_refreshing_label=0x7f050002;
+        public static final int pull_to_refresh_release_label=0x7f050001;
+        public static final int pull_to_refresh_tap_label=0x7f050003;
+        public static final int quota=0x7f050011;
+        public static final int title_activity_dasboard=0x7f05000b;
+        public static final int title_activity_dropbox_data=0x7f05000e;
+        public static final int title_activity_files_list=0x7f05000a;
+        public static final int title_activity_user_profile=0x7f05000d;
+        public static final int userProfile=0x7f05000c;
+        public static final int welcome_back=0x7f05000f;
     }
     public static final class style {
         /** 
@@ -73,12 +221,92 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f050000;
+        public static final int AppBaseTheme=0x7f060000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f050001;
+        public static final int AppTheme=0x7f060001;
+        public static final int leftrow=0x7f060002;
+        public static final int rightrow=0x7f060003;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a PullToRefresh.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #PullToRefresh_adapterViewBackground com.example.dropbox:adapterViewBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_mode com.example.dropbox:mode}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHeaderBackground com.example.dropbox:ptrHeaderBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #PullToRefresh_ptrHeaderTextColor com.example.dropbox:ptrHeaderTextColor}</code></td><td></td></tr>
+           </table>
+           @see #PullToRefresh_adapterViewBackground
+           @see #PullToRefresh_mode
+           @see #PullToRefresh_ptrHeaderBackground
+           @see #PullToRefresh_ptrHeaderTextColor
+         */
+        public static final int[] PullToRefresh = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.example.dropbox.R.attr#adapterViewBackground}
+          attribute's value can be found in the {@link #PullToRefresh} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          @attr name android:adapterViewBackground
+        */
+        public static final int PullToRefresh_adapterViewBackground = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.example.dropbox.R.attr#mode}
+          attribute's value can be found in the {@link #PullToRefresh} array.
+
+
+          <p>Must be one or more (separated by '|') of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>pullDownFromTop</code></td><td>0x1</td><td></td></tr>
+<tr><td><code>pullUpFromBottom</code></td><td>0x2</td><td></td></tr>
+<tr><td><code>both</code></td><td>0x3</td><td></td></tr>
+</table>
+          @attr name android:mode
+        */
+        public static final int PullToRefresh_mode = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.example.dropbox.R.attr#ptrHeaderBackground}
+          attribute's value can be found in the {@link #PullToRefresh} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          @attr name android:ptrHeaderBackground
+        */
+        public static final int PullToRefresh_ptrHeaderBackground = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.example.dropbox.R.attr#ptrHeaderTextColor}
+          attribute's value can be found in the {@link #PullToRefresh} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:ptrHeaderTextColor
+        */
+        public static final int PullToRefresh_ptrHeaderTextColor = 2;
+    };
 }

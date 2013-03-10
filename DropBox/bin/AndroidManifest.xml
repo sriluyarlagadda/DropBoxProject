@@ -3,8 +3,10 @@
     package="com.example.dropbox"
     android:versionCode="1"
     android:versionName="1.0" >
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    
+
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="16" />
@@ -13,9 +15,9 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme.Holo.Light" >
         <activity
-            android:name="com.example.dropbox.MainActivity"
+            android:name="com.example.dropbox.activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,19 +25,47 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
-	      android:name="com.dropbox.client2.android.AuthActivity"
-	      android:launchMode="singleTask"
-	      android:configChanges="orientation|keyboard">
-	      <intent-filter>
-	        <!-- Change this to be db- followed by your app key -->
-	        <data android:scheme="db-ud7jjpwvxfv2w5k" />
-	        <action android:name="android.intent.action.VIEW" />
-	        <category android:name="android.intent.category.BROWSABLE"/>
-	        <category android:name="android.intent.category.DEFAULT" />
-	      </intent-filter>
-	    </activity>
+            android:name="com.example.dropbox.activity.DashboardActivity"
+            android:label="@string/title_activity_dasboard" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>        
+        <activity
+            android:name="com.example.dropbox.activity.UserProfileActivity"
+            android:label="@string/title_activity_user_profile" >
+             <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.dropbox.activity.DropBoxDataActivity"
+            android:label="@string/title_activity_dropbox_data" >
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.dropbox.client2.android.AuthActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask" >
+            <intent-filter>
+
+                <!-- Change this to be db- followed by your app key -->
+                <data android:scheme="db-pru9yxt4q13fyvf" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="com.example.service.AccountInfoService" >
+        </service>
+
     </application>
 
 </manifest>
