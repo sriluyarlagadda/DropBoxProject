@@ -13,5 +13,7 @@
     <color name="articlecolor">#3399FF</color>
     <color name="article_title">#3399FF</color>
     <color name="cachecolor">#8ad0e8</color>
-
+    <color name="lightblue">#33B5E5</color>
+	<color name="darkblue">#0099CC</color>
+	<color name="lightgray">#DCDCDC</color>
 </resources>

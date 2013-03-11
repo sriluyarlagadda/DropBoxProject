@@ -1,11 +1,13 @@
 package com.example.dropbox.adapter;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -15,7 +17,6 @@ import com.dropbox.client2.DropboxAPI.Entry;
 import com.example.dropbox.R;
 import com.example.dropbox.utils.BitMapUtils;
 import com.example.dropbox.utils.DataUtils;
-import com.homeproject.dropboxapi.DropBoxClient;
 
 public class DropBoxEntryAdapter extends ArrayAdapter<Entry> {
 
@@ -44,6 +45,22 @@ public class DropBoxEntryAdapter extends ArrayAdapter<Entry> {
 		
 		Entry entry = getItem(position);
 		TextView entryText = (TextView) view.findViewById(R.id.dropBoxEntry);
+		View listEntry = (View) view.findViewById(R.id.listEntry);
+		if(entry.isDir == false) {
+			EntryFliginListener flingListener = new EntryFliginListener(listEntry);
+			final GestureDetector detector = new GestureDetector(flingListener);
+			listEntry.setOnTouchListener(new OnTouchListener() {
+				
+				@Override
+				public boolean onTouch(View v, MotionEvent event) {
+					detector.onTouchEvent(event);
+					return true;
+				}
+			});
+		}
+		
+		
+		
 		entryText.setText(dataUtils.truncateText(entry.fileName(),30,18));
 		
 		ImageView entryIcon = (ImageView) view.findViewById(R.id.entryIcon);
@@ -70,6 +87,35 @@ public class DropBoxEntryAdapter extends ArrayAdapter<Entry> {
 		}
 		
 		return view;
+	}
+	
+	
+	class EntryFliginListener extends GestureDetector.SimpleOnGestureListener {
+		private View view;
+		public EntryFliginListener(View entryDisplay) {
+			view = entryDisplay;
+		}
+
+		@Override
+		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+				float velocityY) {
+	        int dx = (int) (e2.getX() - e1.getX());
+
+			if(dx > 0) {
+				View hiddenView = view.findViewById(R.id.hiddenView);
+				hiddenView.setVisibility(View.VISIBLE);
+				ObjectAnimator animeX = ObjectAnimator.ofFloat(view.findViewById(R.id.entryDisplay), "x", (float)view.getWidth());
+				animeX.start();
+				return true;
+
+			} else if(dx < 0){
+				View hiddenView = view.findViewById(R.id.hiddenView);
+				ObjectAnimator animeX = ObjectAnimator.ofFloat(view.findViewById(R.id.entryDisplay), "x", 0);
+
+				animeX.start();
+			}
+			return false;
+		}
 	}
 	
 

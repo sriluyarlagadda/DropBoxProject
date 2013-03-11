@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		enterDropBoxButton = (Button)findViewById(R.id.dropBoxButton);
 		enterDropBoxButton.setOnClickListener(enterDropBoxClickListener);		
-		dropBoxClient = new DropBoxClient(this);
+		dropBoxClient = DropBoxClient.getInstance(this);
 	}
 	
 	

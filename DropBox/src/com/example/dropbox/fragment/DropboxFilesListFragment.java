@@ -2,6 +2,7 @@ package com.example.dropbox.fragment;
 
 import java.util.ArrayList;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -78,10 +79,17 @@ public class DropboxFilesListFragment extends Fragment implements
 							bundle.putString("dropboxPath", entry.path);
 							intent.putExtra("directoryPathBundle", bundle);
 							startActivity(intent);
+						} else if(entry !=null && entry.isDir == false) {
+							View hiddenView = view.findViewById(R.id.hiddenView);
+							hiddenView.setVisibility(View.VISIBLE);
+							ObjectAnimator animeX = ObjectAnimator.ofFloat(view.findViewById(R.id.entryDisplay), "x", (float)parent.getWidth());
+							animeX.start();
 						}
 					}
 
 				});
+		
+		
 
 		return view;
 	}
