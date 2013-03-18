@@ -15,6 +15,6 @@ public final class R {
 		public static final int app_name = 0x7f050004;
 	}
 	public static final class drawable {
-		public static final int ic_launcher = 0x7f02000e;
+		public static final int ic_launcher = 0x7f020010;
 	}
 }

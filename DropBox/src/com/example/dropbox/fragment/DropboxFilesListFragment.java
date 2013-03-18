@@ -79,12 +79,7 @@ public class DropboxFilesListFragment extends Fragment implements
 							bundle.putString("dropboxPath", entry.path);
 							intent.putExtra("directoryPathBundle", bundle);
 							startActivity(intent);
-						} else if(entry !=null && entry.isDir == false) {
-							View hiddenView = view.findViewById(R.id.hiddenView);
-							hiddenView.setVisibility(View.VISIBLE);
-							ObjectAnimator animeX = ObjectAnimator.ofFloat(view.findViewById(R.id.entryDisplay), "x", (float)parent.getWidth());
-							animeX.start();
-						}
+						} 
 					}
 
 				});
@@ -93,7 +88,8 @@ public class DropboxFilesListFragment extends Fragment implements
 
 		return view;
 	}
-
+	
+	
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
@@ -138,6 +134,9 @@ public class DropboxFilesListFragment extends Fragment implements
 		};
 		return loader;
 	}
+	
+	
+	
 
 	@Override
 	public void onLoadFinished(Loader<ArrayList<Entry>> loader,

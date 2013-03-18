@@ -1,8 +1,9 @@
 package com.homeproject.dropboxapi;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.util.ArrayList;
 
 import android.content.Context;
@@ -12,6 +13,7 @@ import com.dropbox.client2.DropboxAPI;
 import com.dropbox.client2.DropboxAPI.Account;
 import com.dropbox.client2.DropboxAPI.DropboxFileInfo;
 import com.dropbox.client2.DropboxAPI.Entry;
+import com.dropbox.client2.DropboxAPI.ThumbSize;
 import com.dropbox.client2.android.AndroidAuthSession;
 import com.dropbox.client2.exception.DropboxException;
 import com.dropbox.client2.session.AccessTokenPair;
@@ -137,9 +139,10 @@ public class DropBoxClient {
 	}
 	
 	public byte[] downloadThumbnail(String path) {
+		ThumbSize size = DropboxAPI.ThumbSize.ICON_128x128;
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		try {
-			DropboxFileInfo info = mDropBoxApi.getThumbnail(path, outputStream, DropboxAPI.ThumbSize.ICON_128x128, DropboxAPI.ThumbFormat.JPEG, null);
+			DropboxFileInfo info = mDropBoxApi.getThumbnail(path, outputStream, size, DropboxAPI.ThumbFormat.JPEG, null);
 		} catch(Exception e) {
 			System.out.println("Something went wrong"+ e.toString());
 		} finally {
@@ -155,6 +158,8 @@ public class DropBoxClient {
 		}
 		return null;
 	}
+	
+	
 	
 
 }

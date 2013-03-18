@@ -2,12 +2,16 @@ package com.example.dropbox.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.dropbox.R;
 import com.example.dropbox.fragment.DropboxFilesListFragment;
 
 public class DropBoxDataActivity extends BaseActivity {
 	
+	private ImageView photos;
+	private ImageView dropbox;
 	@Override
 	protected void onCreate(Bundle savedInstance) {
 		super.onCreate(savedInstance);
@@ -22,8 +26,30 @@ public class DropBoxDataActivity extends BaseActivity {
 			}
 			
 			getSupportFragmentManager().beginTransaction().add(R.id.fileList,fileListFragment, null).commit();
-		}
+		}		
 		
+		photos = (ImageView) findViewById(R.id.photosBottomBar);
+		dropbox = (ImageView) findViewById(R.id.dropboxBottomBar);
+		photos.setOnClickListener(photosListener);
+		dropbox.setOnClickListener(dropboxListener);
 	}
+	private View.OnClickListener photosListener = new View.OnClickListener() {
+		public void onClick(View v) {
+			DropboxFilesListFragment fileListFragment = new DropboxFilesListFragment();
+			photos.setBackgroundResource(R.color.gray);
+			dropbox.setBackgroundResource(R.color.lightgray);
+			getSupportFragmentManager().beginTransaction().replace(R.id.fileList,fileListFragment);
+		};
+	};
+	
+	private View.OnClickListener dropboxListener = new View.OnClickListener() {
+		public void onClick(View v) {
+			DropboxFilesListFragment fileListFragment = new DropboxFilesListFragment();
+			photos.setBackgroundResource(R.color.lightgray);			
+			dropbox.setBackgroundResource(R.color.gray);
+			getSupportFragmentManager().beginTransaction().replace(R.id.fileList,fileListFragment);
+		};
+	};
+
 
 }
