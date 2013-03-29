@@ -1,6 +1,12 @@
 package com.example.dropbox.fragment;
 
+import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,20 +17,27 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
 
 import com.dropbox.client2.DropboxAPI.Entry;
+import com.dropbox.client2.RESTUtility;
 import com.example.dropbox.R;
+import com.example.dropbox.adapter.PhotoEntryAdapter;
 import com.homeproject.dropboxapi.DropBoxClient;
 
 public class PhotoListFragment extends Fragment implements LoaderCallbacks<ArrayList<Entry>>{
 
 	private static String PATH = "/Camera Uploads";
+	private ExpandableListView entryListView;
+	private PhotoEntryAdapter adapter;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_photolist, container,
 				false);
-		
+		 adapter = new PhotoEntryAdapter(getActivity());
+		entryListView = (ExpandableListView) view.findViewById(R.id.Entries);	
+		entryListView.setAdapter(adapter);
 		return view;
 	}
 	
@@ -33,7 +46,7 @@ public class PhotoListFragment extends Fragment implements LoaderCallbacks<Array
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		getLoaderManager().initLoader(0x2, null, this);
+		getLoaderManager().initLoader(0x3, null, this);
 	} 
 	
 	
@@ -41,55 +54,57 @@ public class PhotoListFragment extends Fragment implements LoaderCallbacks<Array
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 	}
-	
-	
+
+
 
 	@Override
 	public Loader<ArrayList<Entry>> onCreateLoader(int arg0, Bundle arg1) {
-		Log.v("DropboxFilesListFragment", "creating loader");
-
-		AsyncTaskLoader<ArrayList<Entry>> loader = new AsyncTaskLoader<ArrayList<Entry>>(
-				getActivity()) {
-			private ArrayList<Entry> entryList;
-
+		AsyncTaskLoader<ArrayList<Entry>> loader = new AsyncTaskLoader<ArrayList<Entry>>(getActivity()) {
+			
+			private ArrayList<Entry> entries;
 			@Override
 			public ArrayList<Entry> loadInBackground() {
-				Log.v("DropboxFilesListFragment",
+
+				Log.v("PhotoListFragment",
 						"Started loading in background");
 				DropBoxClient client = DropBoxClient.getInstance(getActivity());
-				entryList = client.getMetaData(PATH);
+				entries = client.getMetaData(PATH);
 
-				return entryList;
+				return entries;
 			}
-
+			
 			@Override
 			protected void onStartLoading() {
-				if (entryList != null) {
-					deliverResult(entryList);
+				if (entries != null) {
+					deliverResult(entries);
 				} else {
 					forceLoad();
 				}
 			}
-
 		};
 		return loader;
 	}
 
+
+
 	@Override
 	public void onLoadFinished(Loader<ArrayList<Entry>> loader,
 			ArrayList<Entry> entryList) {
-/*		adapter.clear();
-		
-		adapter.addAll(entryList);
-		entries = entryList;
-		entryListView.onRefreshComplete();*/
+		ArrayList<String> groupItems = new ArrayList<String>();
+		for(Entry entry:entryList) {
+			groupItems.add(entry.modified);
+		}
+		adapter.setGroupItems(groupItems);
 	}
+
+
 
 	@Override
 	public void onLoaderReset(Loader<ArrayList<Entry>> arg0) {
-
+		// TODO Auto-generated method stub
+		
 	}
-
-
+	
+	
 
 }

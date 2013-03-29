@@ -7,6 +7,7 @@ import android.widget.ImageView;
 
 import com.example.dropbox.R;
 import com.example.dropbox.fragment.DropboxFilesListFragment;
+import com.example.dropbox.fragment.PhotoListFragment;
 
 public class DropBoxDataActivity extends BaseActivity {
 	
@@ -35,10 +36,10 @@ public class DropBoxDataActivity extends BaseActivity {
 	}
 	private View.OnClickListener photosListener = new View.OnClickListener() {
 		public void onClick(View v) {
-			DropboxFilesListFragment fileListFragment = new DropboxFilesListFragment();
+			PhotoListFragment photoListFragment = new PhotoListFragment();
 			photos.setBackgroundResource(R.color.gray);
 			dropbox.setBackgroundResource(R.color.lightgray);
-			getSupportFragmentManager().beginTransaction().replace(R.id.fileList,fileListFragment);
+			getSupportFragmentManager().beginTransaction().replace(R.id.fileList,photoListFragment).commit();
 		};
 	};
 	
@@ -47,7 +48,7 @@ public class DropBoxDataActivity extends BaseActivity {
 			DropboxFilesListFragment fileListFragment = new DropboxFilesListFragment();
 			photos.setBackgroundResource(R.color.lightgray);			
 			dropbox.setBackgroundResource(R.color.gray);
-			getSupportFragmentManager().beginTransaction().replace(R.id.fileList,fileListFragment);
+			getSupportFragmentManager().beginTransaction().replace(R.id.fileList,fileListFragment).commit();
 		};
 	};
 

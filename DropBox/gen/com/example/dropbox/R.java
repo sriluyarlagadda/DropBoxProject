@@ -111,12 +111,13 @@ containing a value of this type.
     }
     public static final class id {
         public static final int Entries=0x7f040019;
-        public static final int account_details=0x7f040026;
+        public static final int account_details=0x7f040028;
         public static final int both=0x7f040002;
         public static final int bottomBar=0x7f040009;
         public static final int container=0x7f04000d;
         public static final int dashboard=0x7f040016;
         public static final int dashboard_container=0x7f040007;
+        public static final int date=0x7f040021;
         public static final int delete=0x7f040010;
         public static final int dropBoxButton=0x7f04000c;
         public static final int dropBoxEntry=0x7f040013;
@@ -133,16 +134,17 @@ containing a value of this type.
         public static final int labelNormalQuota=0x7f04001f;
         public static final int labelUserQuota=0x7f04001d;
         public static final int listEntry=0x7f04000e;
-        public static final int list_files=0x7f040025;
-        public static final int menu_settings=0x7f040024;
+        public static final int list_files=0x7f040027;
+        public static final int menu_settings=0x7f040026;
         public static final int normalquotaValue=0x7f040020;
+        public static final int photoGrid=0x7f040022;
         public static final int photosBottomBar=0x7f04000b;
         public static final int profile=0x7f04001a;
         public static final int pullDownFromTop=0x7f040000;
         public static final int pullUpFromBottom=0x7f040001;
-        public static final int pull_to_refresh_image=0x7f040023;
-        public static final int pull_to_refresh_progress=0x7f040022;
-        public static final int pull_to_refresh_text=0x7f040021;
+        public static final int pull_to_refresh_image=0x7f040025;
+        public static final int pull_to_refresh_progress=0x7f040024;
+        public static final int pull_to_refresh_text=0x7f040023;
         public static final int quotaValue=0x7f04001e;
         public static final int refreshable=0x7f040006;
         public static final int userName=0x7f04001c;
@@ -161,7 +163,9 @@ containing a value of this type.
         public static final int fragment_dropboxfilelist=0x7f030007;
         public static final int fragment_photolist=0x7f030008;
         public static final int fragment_userprofile=0x7f030009;
-        public static final int pull_to_refresh_header=0x7f03000a;
+        public static final int photoentyheading=0x7f03000a;
+        public static final int photogrid=0x7f03000b;
+        public static final int pull_to_refresh_header=0x7f03000c;
     }
     public static final class menu {
         public static final int activity_dasboard=0x7f080000;
