@@ -2,7 +2,6 @@ package com.example.dropbox.fragment;
 
 import java.util.ArrayList;
 
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,13 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
 
 import com.dropbox.client2.DropboxAPI.Entry;
 import com.example.dropbox.R;
 import com.example.dropbox.activity.DropBoxDataActivity;
 import com.example.dropbox.adapter.DropBoxEntryAdapter;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.homeproject.dropboxapi.DropBoxClient;
 
@@ -56,14 +53,7 @@ public class DropboxFilesListFragment extends Fragment implements
 
 		adapter = new DropBoxEntryAdapter(getActivity());
 		entryListView = (PullToRefreshListView) view.findViewById(R.id.Entries);
-		entryListView.setOnRefreshListener(new OnRefreshListener() {
-			@Override
-			public void onRefresh() {
-				getLoaderManager().restartLoader(0, null,
-						DropboxFilesListFragment.this);
-
-			}
-		});
+		
 		entryListView.getRefreshableView().setAdapter(adapter);
 		entryListView.getRefreshableView().setOnItemClickListener(
 				new OnItemClickListener() {

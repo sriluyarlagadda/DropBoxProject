@@ -13,5 +13,6 @@
 		</accessrules>
 	</classpathentry>
 	<classpathentry kind="src" path="/DropBoxClient"/>
+	<classpathentry kind="src" path="/lib-pull-to-refresh"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

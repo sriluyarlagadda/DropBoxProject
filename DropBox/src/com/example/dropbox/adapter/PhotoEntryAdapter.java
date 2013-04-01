@@ -23,11 +23,13 @@ import android.widget.TextView;
 import com.dropbox.client2.DropboxAPI.Entry;
 import com.example.dropbox.R;
 import com.example.dropbox.utils.BitMapUtils;
+import com.homeproject.dropbox.models.PhotoDirectory;
 
 public class PhotoEntryAdapter extends BaseExpandableListAdapter {
 	
 	private Context mContext;
 	private ArrayList<String> groupItems;
+	private PhotoDirectory directory;
 	public PhotoEntryAdapter(Context context) {
 		mContext = context;
 	}
@@ -87,6 +89,8 @@ public class PhotoEntryAdapter extends BaseExpandableListAdapter {
 		Log.v("PhotoEntryAdapter", "groupPosition"+ groupPosition);
 		View view = inflater.inflate(android.R.layout.simple_list_item_1, parent,false);
 		TextView textView = (TextView) view.findViewById(android.R.id.text1);
+		String text = directory.getDate(groupPosition);
+		textView.setText(text);
 		textView.setText(groupItems.get(groupPosition));
 		return view;
 	}

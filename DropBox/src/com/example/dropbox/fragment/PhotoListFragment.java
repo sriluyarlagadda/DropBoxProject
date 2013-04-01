@@ -59,20 +59,21 @@ public class PhotoListFragment extends Fragment implements LoaderCallbacks<Array
 
 	@Override
 	public Loader<ArrayList<Entry>> onCreateLoader(int arg0, Bundle arg1) {
-		AsyncTaskLoader<ArrayList<Entry>> loader = new AsyncTaskLoader<ArrayList<Entry>>(getActivity()) {
-			
+		AsyncTaskLoader<ArrayList<Entry>> loader = new AsyncTaskLoader<ArrayList<Entry>>(
+				getActivity()) {
+
 			private ArrayList<Entry> entries;
+
 			@Override
 			public ArrayList<Entry> loadInBackground() {
 
-				Log.v("PhotoListFragment",
-						"Started loading in background");
+				Log.v("PhotoListFragment", "Started loading in background");
 				DropBoxClient client = DropBoxClient.getInstance(getActivity());
 				entries = client.getMetaData(PATH);
 
 				return entries;
 			}
-			
+
 			@Override
 			protected void onStartLoading() {
 				if (entries != null) {
